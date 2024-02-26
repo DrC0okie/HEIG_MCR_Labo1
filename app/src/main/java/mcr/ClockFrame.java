@@ -22,11 +22,16 @@ public class ClockFrame extends JFrame {
         for (ClockPanel clockPanel : panels)
             add(clockPanel);
 
-        if (panels.length == 1)
-            setResizable(false);
+        // Resizable only if contains > 1 ClockPanel
+        setResizable(panels.length > 1);
 
-        setVisible(true);
+        // Set minimum size
+        Dimension clockDimension = panels[0].getPreferredSize();
+        setMinimumSize(new Dimension(clockDimension.width + 50, clockDimension.height + 50));
+
+        // Pack to add responsiveness
         pack();
+        setVisible(true);
     }
 
     public ClockFrame(ClockPanel clockPanel) {
