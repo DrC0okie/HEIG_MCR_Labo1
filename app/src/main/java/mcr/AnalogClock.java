@@ -18,10 +18,10 @@ public class AnalogClock extends ClockPanel {
     private static final int SECONDES_NEEDLE_THICKNESS = 2;
 
 
-    public AnalogClock(Chrono chrono, Dimension dimension, String backgrndSrc) {
+    public AnalogClock(Chrono chrono, Dimension dimension, String backgroundSource) {
         super(chrono, dimension);
         setLayout(new FlowLayout());
-        backgroundImage = Toolkit.getDefaultToolkit().getImage(backgrndSrc).getScaledInstance(
+        backgroundImage = Toolkit.getDefaultToolkit().getImage(backgroundSource).getScaledInstance(
                 dimension.width, dimension.height, Image.SCALE_DEFAULT);
     }
 
@@ -79,13 +79,13 @@ public class AnalogClock extends ClockPanel {
         graphics2D.drawString("Chrono #" + chrono.getId(), X_POS_TITLE, Y_POS_TITLE);
 
         // Centralize the origin
-        graphics2D.translate(dimension.width / 2, dimension.height / 2);
+        graphics2D.translate(getWidth() / 2, getHeight() / 2);
 
         SimpleTime time = chrono.getTime();
 
         // Draw second, minute, and hour hands
-        drawNeedle(graphics2D, Color.RED, (int) (dimension.width * 0.4), SECONDES_NEEDLE_THICKNESS, time.getSeconds(), MAX_MINUTES_SECONDS);
-        drawNeedle(graphics2D, Color.BLUE, (int) (dimension.width * 0.3), MINUTES_NEEDLE_THICKNESS, time.getMinutes(), MAX_MINUTES_SECONDS);
-        drawNeedle(graphics2D, Color.BLACK, (int) (dimension.width * 0.2), HOURS_NEEDLE_THICKNESS, time.getHours(), MAX_HOURS);
+        drawNeedle(graphics2D, Color.RED, (int) (getWidth() * 0.4), SECONDES_NEEDLE_THICKNESS, time.getSeconds(), MAX_MINUTES_SECONDS);
+        drawNeedle(graphics2D, Color.BLUE, (int) (getWidth() * 0.3), MINUTES_NEEDLE_THICKNESS, time.getMinutes(), MAX_MINUTES_SECONDS);
+        drawNeedle(graphics2D, Color.BLACK, (int) (getWidth() * 0.2), HOURS_NEEDLE_THICKNESS, time.getHours(), MAX_HOURS);
     }
 }
