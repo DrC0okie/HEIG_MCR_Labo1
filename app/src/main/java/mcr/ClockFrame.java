@@ -5,30 +5,28 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class ClockFrame {
+public class ClockFrame extends JFrame {
 
     public ClockFrame(ClockPanel[] panels) {
 
-        JFrame frame = new JFrame();
-
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setLayout(new FlowLayout());
-        frame.addWindowListener(new WindowAdapter() {
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLayout(new FlowLayout());
+        addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 for (ClockPanel clockPanel : panels)
-                   clockPanel.detachFromChrono();
+                    clockPanel.detachFromChrono();
             }
         });
 
         for (ClockPanel clockPanel : panels)
-            frame.add(clockPanel);
+            add(clockPanel);
 
-        if(panels.length == 1)
-            frame.setResizable(false);
+        if (panels.length == 1)
+            setResizable(false);
 
-        frame.setVisible(true);
-        frame.pack();
+        setVisible(true);
+        pack();
     }
 
     public ClockFrame(ClockPanel clockPanel) {
