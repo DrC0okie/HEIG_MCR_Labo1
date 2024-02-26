@@ -37,6 +37,14 @@ public class Chrono extends Subject {
         notifyObservers();
     }
 
+    public void toggle(){
+        if (isRunning){
+            stop();
+        } else {
+            start();
+        }
+    }
+
     public int getId(){
         return id;
     }
