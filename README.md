@@ -3,11 +3,8 @@
 ## Brainstorming
 ```mermaid
 classDiagram
-class Main {
-	main()
-}
 
-class Timer {
+class Chrono {
 	start()
 	stop()
 	setDelay()
@@ -20,15 +17,22 @@ class GUI {
 	setupChronos()
 }
 
-class ChronoUI {
+    class Subject {
+        <<Abstract>>
+        -LinkedList<Observer> observers
+        +void attach(Observer observer)
+        +void detach(Observer observer)
+        +void notifyObservers()
+    }
+    
+    class Observer {
+        <<Interface>>
+        +void update()
+    }
+
+class ClockPanel {
     <<Abstract>>
 	void draw(int currentTime)*
-}
-
-class AnalogicType {
-    <<Enumeration>>
-    Roman
-    Arabic
 }
 
 class AnalogicClock {
@@ -41,7 +45,10 @@ class NumericClock {
 	void draw(int currentTime)
 }
 
-ChronoUI <|-- AnalogicClock
-ChronoUI <|-- NumericClock
+ClockPanel <|-- AnalogicClock
+ClockPanel <|-- NumericClock
+Subject <|-- Chrono : Notify
+Subject --> Observer : Notify
+Observer <|.. ClockPanel
 
 ```
