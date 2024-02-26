@@ -3,12 +3,11 @@
  */
 package mcr;
 
+import mcr.utils.SimpleTime;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        ControlPanel cp = new ControlPanel(3);
     }
 }
