@@ -9,7 +9,6 @@ import java.util.function.Function;
 public class ControlPanel {
 
     private static final Dimension CLOCK_DIMENSION = new Dimension(200, 200);
-
     private final Function<Chrono, ClockPanel> romanClockFactory = chrono -> new AnalogClock(chrono,
             CLOCK_DIMENSION, AnalogClockType.ROMAN);
     private final Function<Chrono, ClockPanel> arabicClockFactory = chrono -> new AnalogClock(chrono,
@@ -19,14 +18,12 @@ public class ControlPanel {
 
 
     ControlPanel(int nbClock) {
-        // Main display window
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Panneau de contrôle");
         frame.setResizable(false);
 
         LinkedList<Chrono> chronos = new LinkedList<>();
-
 
         frame.setLayout(new GridLayout(nbClock + 1, 1));
 
@@ -39,7 +36,6 @@ public class ControlPanel {
             clockPanel.add(new JLabel("Chrono #" + (i + 1)));
 
             addSingleClockButtons(clockPanel, chronos.get(i));
-
         }
 
         addMultiClockButtons(frame, chronos, nbClock);
