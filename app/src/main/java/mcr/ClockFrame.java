@@ -8,7 +8,7 @@ import java.awt.event.WindowEvent;
 public class ClockFrame extends JFrame {
 
     public ClockFrame(ClockPanel[] panels) {
-
+        setIconImage(new ImageIcon("img/icon.png").getImage());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new FlowLayout());
         addWindowListener(new WindowAdapter() {

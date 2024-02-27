@@ -19,6 +19,7 @@ public class ControlPanel {
 
     ControlPanel(int nbClock) {
         JFrame frame = new JFrame();
+        frame.setIconImage(new ImageIcon("img/icon.png").getImage());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Panneau de contrôle");
         frame.setResizable(false);
