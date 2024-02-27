@@ -3,52 +3,69 @@
 ## Brainstorming
 ```mermaid
 classDiagram
-
-class Chrono {
-	start()
-	stop()
-	setDelay()
-	addActionListener()
-	restart()
-}
-
-class GUI {
-	setupChrono(int index)
-	setupChronos()
-}
-
-    class Subject {
-        <<Abstract>>
-        -LinkedList<Observer> observers
-        +void attach(Observer observer)
-        +void detach(Observer observer)
-        +void notifyObservers()
+    direction BT
+    class App {
+        + main(String[]) void
     }
-    
+    class Jpanel{
+        
+    }
+    class AnalogClock {
+        + update() void
+        - calculateNeedleEndPoint(int, double) Point
+        - drawBackground(Graphics2D) void
+        - drawClockHands(Graphics2D) void
+        - drawNeedle(Graphics2D, Color, int, int, int, int) void
+        + paintComponent(Graphics) void
+        - calculateNeedleAngle(int, int) double
+        Graphics2D renderingHints
+    }
+
+    class Chrono {
+        - int id
+        + toggle() void
+        + stop() void
+        + start() void
+        + reset() void
+        int id
+        SimpleTime time
+    }
+    class ClockFrame
+    class ClockPanel {
+        + detachFromChrono() void
+    }
+    class ControlPanel {
+        - addButton(String, JPanel, ActionListener) void
+        - showClocks(LinkedList~Chrono~, Function~Chrono, ClockPanel~, int) void
+        - addSingleClockButtons(JPanel, Chrono) void
+        - showClock(Chrono, Function~Chrono, ClockPanel~) void
+        - addMultiClockButtons(JFrame, LinkedList~Chrono~, int) void
+    }
+    class NumericClock {
+        + update() void
+    }
     class Observer {
         <<Interface>>
-        +void update()
+        + update() void
+    }
+    class SimpleTime {
+        + toString() String
+        + increment(int) void
+        int hours
+        int minutes
+        int seconds
+    }
+    class Subject {
+        + notifyObservers() void
+        + attach(Observer) void
+        + detach(Observer) void
     }
 
-class ClockPanel {
-    <<Abstract>>
-	void draw(int currentTime)*
-}
-
-class AnalogicClock {
-    AnalogicClock(AnalogicType)
-    String imageSource
-	void draw(int currentTime)
-}
-
-class NumericClock {
-	void draw(int currentTime)
-}
-
-ClockPanel <|-- AnalogicClock
-ClockPanel <|-- NumericClock
-Subject <|-- Chrono : Notify
-Subject --> Observer : Notify
-Observer <|.. ClockPanel
+    AnalogClock  -->  ClockPanel
+    Chrono  -->  Subject
+    ClockPanel  ..>  Observer
+    NumericClock  -->  ClockPanel
+    ClockPanel --|>Jpanel
+    ClockFrame o-- ClockPanel
 
 ```

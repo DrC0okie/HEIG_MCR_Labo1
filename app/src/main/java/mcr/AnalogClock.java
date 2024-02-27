@@ -7,8 +7,6 @@ import java.awt.*;
 public class AnalogClock extends ClockPanel {
 
     private final Image backgroundImage;
-
-    // Caractéristiques de l'horloge
     private static final int Y_POS_TITLE = 120;
     private static final int X_POS_TITLE = 75;
     private static final int MAX_MINUTES_SECONDS = 60;

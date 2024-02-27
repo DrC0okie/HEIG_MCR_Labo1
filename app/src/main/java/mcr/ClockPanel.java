@@ -17,7 +17,6 @@ public abstract class ClockPanel extends JPanel implements Observer {
         this.chrono.attach(this);
 
         setPreferredSize(dimension);
-        boolean clicked = false;
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
