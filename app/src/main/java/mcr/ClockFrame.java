@@ -34,7 +34,7 @@ public class ClockFrame extends JFrame {
         setVisible(true);
     }
 
-    public ClockFrame(ClockPanel clockPanel) {
-        this(new ClockPanel[]{clockPanel});
+    public ClockFrame(ClockPanel panel) {
+        this(new ClockPanel[]{panel});
     }
 }

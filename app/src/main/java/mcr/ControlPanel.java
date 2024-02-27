@@ -11,9 +11,9 @@ public class ControlPanel {
     private static final Dimension CLOCK_DIMENSION = new Dimension(200, 200);
 
     private final Function<Chrono, ClockPanel> romanClockFactory = chrono -> new AnalogClock(chrono,
-            CLOCK_DIMENSION, "img/cadran_chiffres_romains.jpg");
+            CLOCK_DIMENSION, AnalogClockType.ROMAN);
     private final Function<Chrono, ClockPanel> arabicClockFactory = chrono -> new AnalogClock(chrono,
-            CLOCK_DIMENSION, "img/cadran_chiffres_arabes.jpg");
+            CLOCK_DIMENSION, AnalogClockType.ARABIC);
     private final Function<Chrono, ClockPanel> numericClockFactory = chrono -> new NumericClock(chrono,
             CLOCK_DIMENSION);
 
@@ -36,7 +36,7 @@ public class ControlPanel {
             JPanel clockPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
             frame.add(clockPanel);
 
-            clockPanel.add(new JLabel("Chrono #" + i));
+            clockPanel.add(new JLabel("Chrono #" + (i + 1)));
 
             addSingleClockButtons(clockPanel, chronos.get(i));
 
