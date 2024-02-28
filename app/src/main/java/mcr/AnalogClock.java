@@ -19,21 +19,14 @@ public class AnalogClock extends ClockPanel {
     private static final double MIN_HAND_LENGTH_FACTOR = 0.3;
     private static final int HOUR_HAND_THICKNESS = 4;
     private static final double HOUR_HAND_LENGTH_FACTOR = 0.2;
-    private final Color hourHandColor;
-    private final Color minuteHandColor;
-    private final Color secondHandColor;
-
-
+    private final AnalogClockType type;
     public AnalogClock(Chrono chrono, Dimension dimension, AnalogClockType type) {
         super(chrono, dimension);
         setLayout(new FlowLayout());
 
         // Retrieve the background image from the cache
         this.backgroundImage = ImageCache.getImage(type, dimension);
-
-        hourHandColor = type.getHourHandColor();
-        minuteHandColor = type.getMinuteHandColor();
-        secondHandColor = type.getSecondHandColor();
+        this.type = type;
     }
 
     /**
@@ -60,6 +53,7 @@ public class AnalogClock extends ClockPanel {
         graphics2D.drawImage(backgroundImage, 0, 0, this);
         drawClockHands(graphics2D);
         drawChronoId(graphics2D);
+        graphics2D.dispose();
     }
 
     /**
@@ -86,11 +80,11 @@ public class AnalogClock extends ClockPanel {
             gCopy.translate(getWidth() / 2, getHeight() / 2);
 
             // Draw second, minute, and hour hands
-            drawHand(gCopy, secondHandColor, (int) (getWidth() * SEC_HAND_LENGTH_FACTOR),
+            drawHand(gCopy, type.getSecondHandColor(), (int) (getWidth() * SEC_HAND_LENGTH_FACTOR),
                     SECOND_HAND_THICKNESS, time.getSeconds(), SECOND_MINUTE_CYCLE);
-            drawHand(gCopy, minuteHandColor, (int) (getWidth() * MIN_HAND_LENGTH_FACTOR),
+            drawHand(gCopy, type.getMinuteHandColor(), (int) (getWidth() * MIN_HAND_LENGTH_FACTOR),
                     MINUTE_HAND_THICKNESS, time.getMinutes(), SECOND_MINUTE_CYCLE);
-            drawHand(gCopy, hourHandColor, (int) (getWidth() * HOUR_HAND_LENGTH_FACTOR),
+            drawHand(gCopy, type.getHourHandColor(), (int) (getWidth() * HOUR_HAND_LENGTH_FACTOR),
                     HOUR_HAND_THICKNESS, time.getHours(), HOUR_CYCLE);
 
         } finally {
