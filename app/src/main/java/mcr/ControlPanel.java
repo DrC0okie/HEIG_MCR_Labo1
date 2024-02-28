@@ -8,9 +8,15 @@ import java.awt.event.WindowEvent;
 import java.util.LinkedList;
 import java.util.function.Function;
 
+/**
+ * Displays a control GUI for managing multiple clocks. Controls a specified number of clocks
+ * represented by a {@link Chrono} and displayed by a {@link ClockPanel}.
+ * @author Samuel Roland, Timothée Van Hove
+ */
 public class ControlPanel {
 
     private static final Dimension CLOCK_DIMENSION = new Dimension(200, 200);
+
     private final Function<Chrono, ClockPanel> romanClockFactory = chrono -> new AnalogClock(chrono,
             CLOCK_DIMENSION, AnalogClockType.ROMAN);
     private final Function<Chrono, ClockPanel> arabicClockFactory = chrono -> new AnalogClock(chrono,
@@ -18,7 +24,10 @@ public class ControlPanel {
     private final Function<Chrono, ClockPanel> numericClockFactory = chrono -> new NumericClock(chrono,
             CLOCK_DIMENSION);
 
-
+    /**
+     * Constructs the ControlPanel with a specified number of clocks.
+     * @param nbClock The number of clocks to be managed.
+     */
     ControlPanel(int nbClock) {
         JFrame frame = new JFrame();
         frame.setIconImage(new ImageIcon("img/icon.png").getImage());
@@ -57,12 +66,23 @@ public class ControlPanel {
         frame.setVisible(true);
     }
 
+    /**
+     * Adds a button to a given panel and attaches the provided action listener to it.
+     * @param name The text to be displayed on the button.
+     * @param toPanel The panel to which the button will be added.
+     * @param actionListener The action listener to be attached to the button.
+     */
     private void addButton(String name, JPanel toPanel, ActionListener actionListener) {
         JButton button = new JButton(name);
         toPanel.add(button);
         button.addActionListener(actionListener);
     }
 
+    /**
+     * Adds buttons for a single clock to the specified panel.
+     * @param clockPanel The panel to which the control buttons will be added.
+     * @param chrono The {@link Chrono} instance associated with the clock being controlled.
+     */
     private void addSingleClockButtons(JPanel clockPanel, Chrono chrono) {
         addButton("Démarrer", clockPanel, e -> chrono.start());
         addButton("Arrêter", clockPanel, e -> chrono.stop());
@@ -72,6 +92,12 @@ public class ControlPanel {
         addButton("Cadran arabe", clockPanel, e -> showClock(chrono, arabicClockFactory));
     }
 
+    /**
+     * Adds buttons to display all clocks simultaneously.
+     * @param frame The main frame to which the control buttons will be added.
+     * @param chronos A list of {@link Chrono} instances representing all clocks in the control panel.
+     * @param nbClock The number of clocks being controlled.
+     */
     private void addMultiClockButtons(JFrame frame, LinkedList<Chrono> chronos, int nbClock) {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         panel.add(new JLabel("Tous les chronos"));
@@ -83,12 +109,24 @@ public class ControlPanel {
         frame.add(panel);
     }
 
-    // Helper method to create and show multiple ClockFrame objects
+    /**
+     * Displays multiple {@link ClockPanel} in the same {@link ClockFrame}, using the specified factory
+     * to create the {@link ClockPanel} for each {@link Chrono}.
+     * @param chronos A list of {@link Chrono} instances to be displayed.
+     * @param factory The factory to create {@link ClockPanel} instances for each {@link Chrono}.
+     * @param nbClock The number of clocks to display.
+     */
     private void showClocks(LinkedList<Chrono> chronos, Function<Chrono, ClockPanel> factory, int nbClock) {
         ClockPanel[] panels = chronos.stream().limit(nbClock).map(factory).toArray(ClockPanel[]::new);
         new ClockFrame(panels);
     }
 
+    /**
+     * Displays a single clock in a {@link ClockFrame}, using the specified factory to create
+     * the {@link ClockPanel} for the given {@link Chrono}.
+     * @param chrono  The {@link Chrono} instance to be displayed.
+     * @param factory The factory to create a {@link ClockPanel} instance for the {@link Chrono}.
+     */
     private void showClock(Chrono chrono, Function<Chrono, ClockPanel> factory) {
         new ClockFrame(factory.apply(chrono));
     }

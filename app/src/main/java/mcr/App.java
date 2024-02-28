@@ -1,5 +1,10 @@
 package mcr;
 
+/**
+ * Entry point of the clock application.
+ * Initializes the application based on CL arguments specifying the number of clocks to manage.
+ * @author Samuel Roland, Timothée Van Hove
+ */
 public class App {
 
     private static final int MIN = 1;

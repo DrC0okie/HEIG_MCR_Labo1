@@ -67,5 +67,13 @@ classDiagram
     NumericClock  -->  ClockPanel
     ClockPanel --|>Jpanel
     ClockFrame o-- ClockPanel
-
 ```
+
+
+## Question à poser
+
+1. Faut-il implémenter les RomanClock et ArabicClock comme sous-classe de AnalogClock, ou passer les styles en paramètres avec un enum?
+2. ClockFrame: Faut-il hériter de JFrame ou juste utiliser une composition?
+3. Commentaires: Faut-il faire de la javadoc pour les champs privés des classes?
+4. Faut-il rendre un rapport ou juste UML suffit?
+5. cache Overkill ou à garder?

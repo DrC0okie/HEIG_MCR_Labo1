@@ -5,8 +5,17 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/**
+ * Specialized JFrame designed to display one or more {@link ClockPanel} instances.
+ * It sets up the window properties, layout, and event listeners used to display the clocks
+ * @author Samuel Roland, Timothée Van Hove
+ */
 public class ClockFrame extends JFrame {
 
+    /**
+     * Constructs a ClockFrame to display multiple ClockPanels.
+     * @param panels An array of {@link ClockPanel} instances to be displayed within the frame.
+     */
     public ClockFrame(ClockPanel[] panels) {
         setIconImage(new ImageIcon("img/icon.png").getImage());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -34,6 +43,10 @@ public class ClockFrame extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Constructs a ClockFrame to display a single ClockPanel.
+     * @param panel A single {@link ClockPanel} instance to be displayed within the frame.
+     */
     public ClockFrame(ClockPanel panel) {
         this(new ClockPanel[]{panel});
     }
