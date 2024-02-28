@@ -3,6 +3,8 @@ package mcr;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.LinkedList;
 import java.util.function.Function;
 
@@ -40,6 +42,15 @@ public class ControlPanel {
         }
 
         addMultiClockButtons(frame, chronos, nbClock);
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Close the chronos before exit
+                for (Chrono chrono : chronos)
+                    chrono.close();
+            }
+        });
 
         // Enable the frame size to fit correctly its content
         frame.pack();
