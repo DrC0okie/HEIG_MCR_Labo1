@@ -1,5 +1,6 @@
 package mcr;
 
+import mcr.utils.ImageCache;
 import mcr.utils.SimpleTime;
 import java.awt.*;
 
@@ -27,9 +28,8 @@ public class AnalogClock extends ClockPanel {
         super(chrono, dimension);
         setLayout(new FlowLayout());
 
-        // TODO: Fallback if the image is not found
-        this.backgroundImage = Toolkit.getDefaultToolkit().getImage(type.getBackgroundImage())
-                .getScaledInstance(dimension.width, dimension.height, Image.SCALE_DEFAULT);
+        // Retrieve the background image from the cache
+        this.backgroundImage = ImageCache.getImage(type, dimension);
 
         hourHandColor = type.getHourHandColor();
         minuteHandColor = type.getMinuteHandColor();
