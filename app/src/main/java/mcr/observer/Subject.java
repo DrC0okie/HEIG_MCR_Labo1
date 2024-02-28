@@ -1,4 +1,4 @@
-package mcr.observerPattern;
+package mcr.observer;
 
 import java.util.LinkedList;
 

@@ -1,6 +1,6 @@
 package mcr;
 
-import mcr.observerPattern.Observer;
+import mcr.observer.Observer;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;

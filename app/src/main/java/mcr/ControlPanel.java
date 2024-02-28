@@ -69,12 +69,12 @@ public class ControlPanel {
     /**
      * Adds a button to a given panel and attaches the provided action listener to it.
      * @param name The text to be displayed on the button.
-     * @param toPanel The panel to which the button will be added.
+     * @param panel The panel to which the button will be added.
      * @param actionListener The action listener to be attached to the button.
      */
-    private void addButton(String name, JPanel toPanel, ActionListener actionListener) {
+    private void addButton(String name, JPanel panel, ActionListener actionListener) {
         JButton button = new JButton(name);
-        toPanel.add(button);
+        panel.add(button);
         button.addActionListener(actionListener);
     }
 

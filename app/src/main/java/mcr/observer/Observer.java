@@ -1,4 +1,4 @@
-package mcr.observerPattern;
+package mcr.observer;
 
 /**
  * Observer interface of the Observer design pattern. Classes that implement this interface

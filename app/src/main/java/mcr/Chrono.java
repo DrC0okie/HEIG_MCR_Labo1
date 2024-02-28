@@ -1,6 +1,6 @@
 package mcr;
 
-import mcr.observerPattern.Subject;
+import mcr.observer.Subject;
 import mcr.utils.SimpleTime;
 import javax.swing.*;
 import java.awt.event.ActionListener;
