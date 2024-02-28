@@ -26,7 +26,7 @@ public class Chrono extends Subject implements Closeable {
      * Constructs a new Chrono instance with the time set to 00:00:00.
      */
     public Chrono(){
-        currentTime = new SimpleTime(0, 0, 0);
+        currentTime = new SimpleTime(0);
         isRunning = false;
         id = ++instanceCount;
         timer = new Timer(1000, listener);
@@ -52,7 +52,7 @@ public class Chrono extends Subject implements Closeable {
      * Resets the chronometer time to 00:00:00.
      */
     public void reset(){
-        currentTime = new SimpleTime(0, 0, 0);
+        currentTime = new SimpleTime(0);
         notifyObservers();
     }
 

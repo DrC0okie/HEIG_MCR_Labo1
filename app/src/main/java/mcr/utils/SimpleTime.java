@@ -12,13 +12,11 @@ public class SimpleTime {
     private static final int SECONDS_IN_HOUR = MINUTE_MAX * SECOND_MAX;
 
     /**
-     * Constructs a SimpleTime instance with specified hours, minutes, and seconds.
-     * @param hours The hour component of the time.
-     * @param minutes The minute component of the time.
-     * @param seconds The second component of the time.
+     * Constructs a SimpleTime instance with specified seconds.
+     * @param time The time represented in seconds
      */
-    public SimpleTime(int hours, int minutes, int seconds) {
-        time = seconds + (minutes * SECOND_MAX) + (hours * SECONDS_IN_HOUR);
+    public SimpleTime(int time) {
+        this.time = time;
     }
 
     private int time;
