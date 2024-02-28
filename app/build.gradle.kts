@@ -41,3 +41,12 @@ tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+tasks.named<JavaExec>("run") {
+    // Set default arguments if none are provided
+    args = if (!project.hasProperty("appArgs")) {
+        listOf("3")
+    } else {
+        (project.property("appArgs") as String).split(",")
+    }
+}
