@@ -31,6 +31,7 @@ public class ControlPanel {
         this.nbClock = nbClock;
         chronos = new LinkedList<>();
 
+        // Set up the parameters of the main frame of the application
         frame = new JFrame();
         frame.setIconImage(new ImageIcon("img/icon.png").getImage());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,6 +54,7 @@ public class ControlPanel {
 
         addMultiClockPanel();
 
+        // TODO: Keep or not?
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
