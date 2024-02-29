@@ -79,3 +79,9 @@ classDiagram
 5. cache Overkill ou à garder?
 6. Peut-on utiliser les champs privés / données locales dans une fonction privée ou doit-on les passer en paramètres?
 7. Dans l'UML si on implémente une interface, doit-on redéclarer les méthodes de l'interface dans la classe (ou sous-classe) qui l'implémente?
+
+## TODO
+
+* Error management / exception handling
+* Unit tests
+* report?
