@@ -3,12 +3,10 @@ package mcr.clock;
 import mcr.chrono.Chrono;
 import java.awt.*;
 
-public class RomanClock extends AnalogClock{
+public class RomanClock extends AnalogClock {
 
-    private static final String IMAGE_PATH = "img/cadran_chiffres_romains.jpg";
-
-    public RomanClock(Chrono chrono){
-        super(chrono, IMAGE_PATH);
+    public RomanClock(Chrono chrono) {
+        super(chrono, "img/cadran_chiffres_romains.jpg");
         setSecondHandColor(Color.ORANGE);
         setMinuteHandColor(Color.GRAY);
         setHourHandColor(Color.BLACK);
