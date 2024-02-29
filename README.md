@@ -93,5 +93,5 @@ classDiagram
 - [ ] Mini tests mouvements aiguilles
 - [ ] Check ok avec consigne
 - [ ] Check si outil disponible pour d'autres labos pour générer des diagrammes UML
-- [ ] Reformattage complet (avec longues lignes)
+- [ ] Reformattage complet (100 char/ligne)
 
