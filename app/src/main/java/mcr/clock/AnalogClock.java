@@ -15,9 +15,9 @@ public abstract class AnalogClock extends ClockPanel {
     private static final int SECOND_MINUTE_CYCLE = 60;
     private static final int HOUR_CYCLE = 12;
     private static final int SECOND_HAND_THICKNESS = 2;
-    private static final double SEC_HAND_LENGTH_FACTOR = 0.4;
+    private static final double SECOND_HAND_LENGTH_FACTOR = 0.4;
     private static final int MINUTE_HAND_THICKNESS = 3;
-    private static final double MIN_HAND_LENGTH_FACTOR = 0.3;
+    private static final double MINUTE_HAND_LENGTH_FACTOR = 0.3;
     private static final int HOUR_HAND_THICKNESS = 4;
     private static final double HOUR_HAND_LENGTH_FACTOR = 0.2;
     protected Color secondHandColor = Color.RED;
@@ -82,6 +82,7 @@ public abstract class AnalogClock extends ClockPanel {
 
     /**
      * Draws the clock hands for hours, minutes, and seconds.
+     * This method works on a copy of the {@link Graphics2D} because it changes its coordinates
      * @param graphics2D The Graphics2D context used for drawing the hands.
      */
     private void drawClockHands(Graphics2D graphics2D) {
@@ -95,9 +96,9 @@ public abstract class AnalogClock extends ClockPanel {
             gCopy.translate(getWidth() / 2, getHeight() / 2);
 
             // Draw second, minute, and hour hands
-            drawHand(gCopy, secondHandColor, (int) (getWidth() * SEC_HAND_LENGTH_FACTOR),
+            drawHand(gCopy, secondHandColor, (int) (getWidth() * SECOND_HAND_LENGTH_FACTOR),
                     SECOND_HAND_THICKNESS, time.getSeconds(), SECOND_MINUTE_CYCLE);
-            drawHand(gCopy, minuteHandColor, (int) (getWidth() * MIN_HAND_LENGTH_FACTOR),
+            drawHand(gCopy, minuteHandColor, (int) (getWidth() * MINUTE_HAND_LENGTH_FACTOR),
                     MINUTE_HAND_THICKNESS, time.getMinutes(), SECOND_MINUTE_CYCLE);
             drawHand(gCopy, hourHandColor, (int) (getWidth() * HOUR_HAND_LENGTH_FACTOR),
                     HOUR_HAND_THICKNESS, time.getHours(), HOUR_CYCLE);
@@ -146,7 +147,7 @@ public abstract class AnalogClock extends ClockPanel {
     }
 
     /**
-     * Calculates the end point of a clock hand based on the time and the hand's length.
+     * Calculates the end point of a clock hand based on the time and the hand length.
      * Translates the time value into an angle and then calculates the end point's coordinates.
      * @param length The length of the hand from the center of the clock.
      * @param time The current time value (hour, minute, or second) that the hand represents.

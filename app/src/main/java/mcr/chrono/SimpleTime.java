@@ -6,10 +6,10 @@ package mcr.chrono;
  */
 public class SimpleTime {
 
-    private static final int HOUR_MAX = 24;
-    private static final int MINUTE_MAX = 60;
-    private static final int SECOND_MAX = 60;
-    private static final int SECONDS_IN_HOUR = MINUTE_MAX * SECOND_MAX;
+    private static final int HOUR_CYCLE = 24;
+    private static final int MINUTE_CYCLE = 60;
+    private static final int SECOND_CYCLE = 60;
+    private static final int SECONDS_IN_HOUR = MINUTE_CYCLE * SECOND_CYCLE;
 
     /**
      * Constructs a SimpleTime instance with specified seconds.
@@ -26,7 +26,7 @@ public class SimpleTime {
      * @return The hour component.
      */
     public int getHours() {
-        return (time / SECONDS_IN_HOUR) % HOUR_MAX;
+        return (time / SECONDS_IN_HOUR) % HOUR_CYCLE;
     }
 
     /**
@@ -34,7 +34,7 @@ public class SimpleTime {
      * @return The minute component.
      */
     public int getMinutes() {
-        return (time / MINUTE_MAX) % MINUTE_MAX;
+        return (time / MINUTE_CYCLE) % MINUTE_CYCLE;
     }
 
     /**
@@ -42,7 +42,7 @@ public class SimpleTime {
      * @return The second component.
      */
     public int getSeconds() {
-        return time % SECOND_MAX;
+        return time % SECOND_CYCLE;
     }
 
     /**
