@@ -9,17 +9,13 @@ import java.io.Closeable;
  * Simple chronometer that can start, stop, and reset. Notifies its observers when the time changes.
  * @author Samuel Roland, Timothée Van Hove
  */
-public class Chrono extends Subject implements Closeable {
+public class Chrono extends Subject {
 
     private SimpleTime currentTime;
     private final Timer timer;
     private static int instanceCount = 0;
     private final int id;
     private boolean isRunning;
-    private final ActionListener listener  = e -> {
-        currentTime.increment(1);
-        notifyObservers();
-    };
 
     /**
      * Constructs a new Chrono instance with the time set to 00:00:00.
@@ -28,7 +24,10 @@ public class Chrono extends Subject implements Closeable {
         currentTime = new SimpleTime(0);
         isRunning = false;
         id = ++instanceCount;
-        timer = new Timer(1000, listener);
+        timer = new Timer(1000, e -> {
+            currentTime.increment(1);
+            notifyObservers();
+        });
     }
 
     /**
@@ -80,14 +79,5 @@ public class Chrono extends Subject implements Closeable {
      */
     public SimpleTime getTime() {
         return currentTime;
-    }
-
-    /**
-     * Stops the chronometer and removes the action listener from the timer upon closing.
-     */
-    @Override
-    public void close() {
-        timer.stop();
-        timer.removeActionListener(listener);
     }
 }

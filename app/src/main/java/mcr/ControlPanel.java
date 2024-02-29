@@ -54,17 +54,7 @@ public class ControlPanel {
 
         addMultiClockPanel();
 
-        // TODO: Keep or not?
-        frame.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                // Close the chronos before exit
-                for (Chrono chrono : chronos)
-                    chrono.close();
-            }
-        });
-
-        // Enable the frame size to fit correctly its content
+        // Enable the frame to fit correctly its content
         frame.pack();
         frame.setVisible(true);
     }
