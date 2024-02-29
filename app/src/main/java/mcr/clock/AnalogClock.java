@@ -1,8 +1,8 @@
 package mcr.clock;
 
-import mcr.Chrono;
+import mcr.chrono.Chrono;
 import mcr.utils.ImageCache;
-import mcr.utils.SimpleTime;
+import mcr.chrono.SimpleTime;
 import java.awt.*;
 
 /**

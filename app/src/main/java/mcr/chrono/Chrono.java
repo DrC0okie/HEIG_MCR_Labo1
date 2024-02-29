@@ -1,7 +1,6 @@
-package mcr;
+package mcr.chrono;
 
 import mcr.observer.Subject;
-import mcr.utils.SimpleTime;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.io.Closeable;

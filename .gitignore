@@ -30,3 +30,5 @@ MCR_Labo1/.idea/
 
 # Ignore Gradle build output directory
 build
+
+.idea/gradle.xml

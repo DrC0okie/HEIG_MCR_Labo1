@@ -1,6 +1,6 @@
 package mcr.clock;
 
-import mcr.Chrono;
+import mcr.chrono.Chrono;
 import java.awt.*;
 
 

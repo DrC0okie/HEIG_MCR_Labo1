@@ -1,4 +1,4 @@
-package mcr.utils;
+package mcr.chrono;
 
 /**
  * Represents a simple time format with hours, minutes, and seconds.
@@ -49,7 +49,7 @@ public class SimpleTime {
      * Increments the time by a specified number of seconds.
      * @param seconds The number of seconds to add to the current time.
      */
-    public void increment(int seconds) {
+    void increment(int seconds) {
         time += seconds;
     }
 

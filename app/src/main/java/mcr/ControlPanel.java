@@ -1,5 +1,6 @@
 package mcr;
 
+import mcr.chrono.Chrono;
 import mcr.clock.*;
 
 import javax.swing.*;
@@ -16,10 +17,6 @@ import java.util.function.Function;
  * @author Samuel Roland, Timothée Van Hove
  */
 public class ControlPanel {
-
-    private final Function<Chrono, ClockPanel> romanClockFactory = RomanClock::new;
-    private final Function<Chrono, ClockPanel> arabicClockFactory = ArabicClock::new;
-    private final Function<Chrono, ClockPanel> numericClockFactory = NumericClock::new;
 
     /**
      * Constructs the ControlPanel with a specified number of clocks.
@@ -84,9 +81,9 @@ public class ControlPanel {
         addButton("Démarrer", clockPanel, e -> chrono.start());
         addButton("Arrêter", clockPanel, e -> chrono.stop());
         addButton("Réinitialiser", clockPanel, e -> chrono.reset());
-        addButton("Numérique", clockPanel, e -> showClock(chrono, numericClockFactory));
-        addButton("Cadran romain", clockPanel, e -> showClock(chrono, romanClockFactory));
-        addButton("Cadran arabe", clockPanel, e -> showClock(chrono, arabicClockFactory));
+        addButton("Numérique", clockPanel, e -> showClock(chrono, NumericClock::new));
+        addButton("Cadran romain", clockPanel, e -> showClock(chrono, RomanClock::new));
+        addButton("Cadran arabe", clockPanel, e -> showClock(chrono, ArabicClock::new));
     }
 
     /**
@@ -99,9 +96,9 @@ public class ControlPanel {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         panel.add(new JLabel("Tous les chronos"));
 
-        addButton("Cadrans romains", panel, e -> showClocks(chronos, romanClockFactory, nbClock));
-        addButton("Cadrans arabes", panel, e -> showClocks(chronos, arabicClockFactory, nbClock));
-        addButton("Numériques", panel, e -> showClocks(chronos, numericClockFactory, nbClock));
+        addButton("Cadrans romains", panel, e -> showClocks(chronos, RomanClock::new, nbClock));
+        addButton("Cadrans arabes", panel, e -> showClocks(chronos, ArabicClock::new, nbClock));
+        addButton("Numériques", panel, e -> showClocks(chronos, NumericClock::new, nbClock));
 
         frame.add(panel);
     }
