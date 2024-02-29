@@ -6,6 +6,7 @@ package mcr.observer;
  * @author Samuel Roland, Timothée Van Hove
  */
 public interface Observer {
+
     /**
      * Method called by the {@link Subject} when a state changes.
      */

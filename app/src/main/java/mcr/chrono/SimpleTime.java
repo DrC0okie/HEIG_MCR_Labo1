@@ -10,6 +10,7 @@ public class SimpleTime {
     private static final int MINUTE_CYCLE = 60;
     private static final int SECOND_CYCLE = 60;
     private static final int SECONDS_IN_HOUR = MINUTE_CYCLE * SECOND_CYCLE;
+    private int time;
 
     /**
      * Constructs a SimpleTime instance with specified seconds.
@@ -18,8 +19,6 @@ public class SimpleTime {
     public SimpleTime(int time) {
         this.time = time;
     }
-
-    private int time;
 
     /**
      * Returns the hour component of the time.
