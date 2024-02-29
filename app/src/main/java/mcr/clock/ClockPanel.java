@@ -1,5 +1,6 @@
-package mcr;
+package mcr.clock;
 
+import mcr.Chrono;
 import mcr.observer.Observer;
 import javax.swing.*;
 import java.awt.*;
@@ -13,17 +14,17 @@ import java.awt.event.MouseEvent;
  */
 public abstract class ClockPanel extends JPanel implements Observer {
 
+    protected static final Dimension CLOCK_DIMENSION = new Dimension(200, 200);
     protected final Chrono chrono;
 
     /**
      * Constructs a new ClockPanel associated with a given {@link Chrono} and sets its size.
      * @param chrono The {@link Chrono} instance to associate with this panel.
-     * @param dimension The preferred size of the panel.
      */
-    protected ClockPanel(Chrono chrono, Dimension dimension) {
+    protected ClockPanel(Chrono chrono) {
         this.chrono = chrono;
         this.chrono.attach(this);
-        setPreferredSize(dimension);
+        setPreferredSize(CLOCK_DIMENSION);
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

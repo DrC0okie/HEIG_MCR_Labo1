@@ -1,5 +1,6 @@
-package mcr;
+package mcr.clock;
 
+import mcr.Chrono;
 import mcr.utils.ImageCache;
 import mcr.utils.SimpleTime;
 import java.awt.*;
@@ -8,7 +9,7 @@ import java.awt.*;
  * The AnalogClock class that provide a visual representation of an analog clock.
  * @author Samuel Roland, Timothée Van Hove
  */
-public class AnalogClock extends ClockPanel {
+public abstract class AnalogClock extends ClockPanel {
 
     private final Image backgroundImage;
     private static final int SECOND_MINUTE_CYCLE = 60;
@@ -19,14 +20,17 @@ public class AnalogClock extends ClockPanel {
     private static final double MIN_HAND_LENGTH_FACTOR = 0.3;
     private static final int HOUR_HAND_THICKNESS = 4;
     private static final double HOUR_HAND_LENGTH_FACTOR = 0.2;
-    private final AnalogClockType type;
-    public AnalogClock(Chrono chrono, Dimension dimension, AnalogClockType type) {
-        super(chrono, dimension);
+    protected Color secondHandColor = Color.RED;
+    protected Color minuteHandColor = Color.RED;
+    protected Color hourHandColor = Color.RED;
+
+    public AnalogClock(Chrono chrono, String imagePath) {
+
+        super(chrono);
         setLayout(new FlowLayout());
 
         // Retrieve the background image from the cache
-        this.backgroundImage = ImageCache.getImage(type, dimension);
-        this.type = type;
+        backgroundImage = ImageCache.getImage(imagePath, CLOCK_DIMENSION);
     }
 
     /**
@@ -53,7 +57,18 @@ public class AnalogClock extends ClockPanel {
         graphics2D.drawImage(backgroundImage, 0, 0, this);
         drawClockHands(graphics2D);
         drawChronoId(graphics2D);
-        graphics2D.dispose();
+    }
+
+    protected void setSecondHandColor(Color color){
+        secondHandColor = color;
+    }
+
+    protected void setMinuteHandColor(Color color){
+        minuteHandColor = color;
+    }
+
+    protected void setHourHandColor(Color color){
+        hourHandColor = color;
     }
 
     /**
@@ -80,11 +95,11 @@ public class AnalogClock extends ClockPanel {
             gCopy.translate(getWidth() / 2, getHeight() / 2);
 
             // Draw second, minute, and hour hands
-            drawHand(gCopy, type.getSecondHandColor(), (int) (getWidth() * SEC_HAND_LENGTH_FACTOR),
+            drawHand(gCopy, secondHandColor, (int) (getWidth() * SEC_HAND_LENGTH_FACTOR),
                     SECOND_HAND_THICKNESS, time.getSeconds(), SECOND_MINUTE_CYCLE);
-            drawHand(gCopy, type.getMinuteHandColor(), (int) (getWidth() * MIN_HAND_LENGTH_FACTOR),
+            drawHand(gCopy, minuteHandColor, (int) (getWidth() * MIN_HAND_LENGTH_FACTOR),
                     MINUTE_HAND_THICKNESS, time.getMinutes(), SECOND_MINUTE_CYCLE);
-            drawHand(gCopy, type.getHourHandColor(), (int) (getWidth() * HOUR_HAND_LENGTH_FACTOR),
+            drawHand(gCopy, hourHandColor, (int) (getWidth() * HOUR_HAND_LENGTH_FACTOR),
                     HOUR_HAND_THICKNESS, time.getHours(), HOUR_CYCLE);
 
         } finally {

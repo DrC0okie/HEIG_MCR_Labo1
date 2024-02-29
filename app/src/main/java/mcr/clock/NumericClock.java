@@ -1,4 +1,6 @@
-package mcr;
+package mcr.clock;
+
+import mcr.Chrono;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,10 +18,9 @@ public class NumericClock extends ClockPanel {
     /**
      * Constructs a NumericClock associated with a specific {@link Chrono} and sets its size.
      * @param chrono The Chrono instance whose time this clock displays.
-     * @param dimension The preferred dimension for this clock display.
      */
-    public NumericClock(Chrono chrono, Dimension dimension) {
-        super(chrono, dimension);
+    public NumericClock(Chrono chrono) {
+        super(chrono);
         setLayout(new GridBagLayout());
         add(label);
         update();

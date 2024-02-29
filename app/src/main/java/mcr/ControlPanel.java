@@ -1,5 +1,7 @@
 package mcr;
 
+import mcr.clock.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -15,14 +17,9 @@ import java.util.function.Function;
  */
 public class ControlPanel {
 
-    private static final Dimension CLOCK_DIMENSION = new Dimension(200, 200);
-
-    private final Function<Chrono, ClockPanel> romanClockFactory = chrono -> new AnalogClock(chrono,
-            CLOCK_DIMENSION, AnalogClockType.ROMAN);
-    private final Function<Chrono, ClockPanel> arabicClockFactory = chrono -> new AnalogClock(chrono,
-            CLOCK_DIMENSION, AnalogClockType.ARABIC);
-    private final Function<Chrono, ClockPanel> numericClockFactory = chrono -> new NumericClock(chrono,
-            CLOCK_DIMENSION);
+    private final Function<Chrono, ClockPanel> romanClockFactory = RomanClock::new;
+    private final Function<Chrono, ClockPanel> arabicClockFactory = ArabicClock::new;
+    private final Function<Chrono, ClockPanel> numericClockFactory = NumericClock::new;
 
     /**
      * Constructs the ControlPanel with a specified number of clocks.

@@ -1,4 +1,4 @@
-package mcr;
+package mcr.clock;
 
 import javax.swing.*;
 import java.awt.*;
