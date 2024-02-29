@@ -20,6 +20,8 @@ public class ClockFrame extends JFrame {
         setIconImage(new ImageIcon("img/icon.png").getImage());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new FlowLayout());
+
+        // Detach all Chrono observers when the window is closed
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -38,7 +40,7 @@ public class ClockFrame extends JFrame {
         Dimension clockDimension = panels[0].getPreferredSize();
         setMinimumSize(new Dimension(clockDimension.width + 50, clockDimension.height + 50));
 
-        // Pack to add responsiveness
+        // Enable the frame to fit correctly its content
         pack();
         setVisible(true);
     }
