@@ -11,6 +11,10 @@ import java.util.Map;
  * @author Samuel Roland, Timothée Van Hove
  */
 public class ImageCache {
+
+    // Forbid instantiation as this is a utility class
+    private ImageCache(){}
+
     /**
      * A map to store cached images.
      */
