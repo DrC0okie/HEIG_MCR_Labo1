@@ -14,7 +14,6 @@ public class NumericClock extends ClockPanel {
 
     private final JLabel label = new JLabel();
 
-
     /**
      * Constructs a NumericClock associated with a specific {@link Chrono} and sets its size.
      * @param chrono The Chrono instance whose time this clock displays.

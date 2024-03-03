@@ -59,15 +59,15 @@ public abstract class AnalogClock extends ClockPanel {
         drawChronoId(graphics2D);
     }
 
-    protected void setSecondHandColor(Color color){
+    protected void setSecondHandColor(Color color) {
         secondHandColor = color;
     }
 
-    protected void setMinuteHandColor(Color color){
+    protected void setMinuteHandColor(Color color) {
         minuteHandColor = color;
     }
 
-    protected void setHourHandColor(Color color){
+    protected void setHourHandColor(Color color) {
         hourHandColor = color;
     }
 

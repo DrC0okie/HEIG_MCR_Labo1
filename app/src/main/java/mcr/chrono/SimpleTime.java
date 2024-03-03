@@ -56,7 +56,7 @@ public class SimpleTime {
      * Returns a string representation of the time in the format "HHh MMm SSs".
      * @return The formatted time string.
      */
-    public String toString(){
+    public String toString() {
         return String.format("%02dh %02dm %02ds", getHours(), getMinutes(), getSeconds());
     }
 }

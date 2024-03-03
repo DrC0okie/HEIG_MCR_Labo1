@@ -50,6 +50,6 @@ public class ClockFrame extends JFrame {
      * @param panel A single {@link ClockPanel} instance to be displayed within the frame.
      */
     public ClockFrame(ClockPanel panel) {
-        this(new ClockPanel[]{panel});
+        this(new ClockPanel[] { panel });
     }
 }

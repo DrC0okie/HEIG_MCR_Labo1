@@ -20,7 +20,7 @@ public class Chrono extends Subject {
     /**
      * Constructs a new Chrono instance with the time set to 00:00:00.
      */
-    public Chrono(){
+    public Chrono() {
         currentTime = new SimpleTime(0);
         isRunning = false;
         id = ++instanceCount;
@@ -33,7 +33,7 @@ public class Chrono extends Subject {
     /**
      * Starts the chronometer.
      */
-    public void start(){
+    public void start() {
         timer.start();
         isRunning = true;
     }
@@ -41,7 +41,7 @@ public class Chrono extends Subject {
     /**
      * Stops the chronometer.
      */
-    public void stop(){
+    public void stop() {
         timer.stop();
         isRunning = false;
     }
@@ -49,7 +49,7 @@ public class Chrono extends Subject {
     /**
      * Resets the chronometer time to 00:00:00.
      */
-    public void reset(){
+    public void reset() {
         currentTime = new SimpleTime(0);
         notifyObservers();
     }
@@ -57,8 +57,8 @@ public class Chrono extends Subject {
     /**
      * Toggles the chronometer state between running and stopped.
      */
-    public void toggle(){
-        if (isRunning){
+    public void toggle() {
+        if (isRunning) {
             stop();
         } else {
             start();
@@ -69,7 +69,7 @@ public class Chrono extends Subject {
      * Returns the unique ID of the chronometer.
      * @return The chronometer's ID.
      */
-    public int getId(){
+    public int getId() {
         return id;
     }
 
