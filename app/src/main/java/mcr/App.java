@@ -2,7 +2,7 @@ package mcr;
 
 /**
  * Entry point of the clock application.
- * Initializes the application based on CL arguments specifying the number of clocks to manage.
+ * Initializes the application based on CLI arguments specifying the number of clocks to manage.
  * @author Samuel Roland, Timothée Van Hove
  */
 public class App {
@@ -17,7 +17,7 @@ public class App {
                 // Parse the first argument to an integer
                 int value = Integer.parseInt(args[0]);
 
-                // Check if the value is between 1 and 9
+                // Check if the value is in the accepted range
                 if (value >= MIN && value <= MAX)
                     new ControlPanel(value);
                 else

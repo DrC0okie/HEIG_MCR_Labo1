@@ -109,7 +109,6 @@ public class ControlPanel {
      * @param factory The factory to create {@link ClockPanel} instances for each {@link Chrono}.
      */
     private void showClocks(Function<Chrono, ClockPanel> factory) {
-        // For each chrono
         ClockPanel[] panels = chronos.stream().limit(nbClock).map(factory).toArray(ClockPanel[]::new);
         new ClockFrame(panels);
     }

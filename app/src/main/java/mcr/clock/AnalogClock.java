@@ -25,14 +25,13 @@ public abstract class AnalogClock extends ClockPanel {
     protected Color hourHandColor = Color.RED;
 
     public AnalogClock(Chrono chrono, String imagePath) {
-
         super(chrono);
         setLayout(new FlowLayout());
 
         // Retrieve the background image from the cache
         backgroundImage = ImageCache.getImage(imagePath, CLOCK_DIMENSION);
     }
-
+ 
     /**
      * Updates the clock display.
      */
@@ -42,7 +41,7 @@ public abstract class AnalogClock extends ClockPanel {
     }
 
     /**
-     * Handles the drawing the clock's background image, hands, and identifier text.
+     * Handles the drawing of the clock's background image, hands, and identifier text.
      * @param graphics The Graphics context in which to paint.
      */
     @Override

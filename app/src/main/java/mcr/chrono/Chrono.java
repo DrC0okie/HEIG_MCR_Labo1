@@ -24,6 +24,7 @@ public class Chrono extends Subject {
         currentTime = new SimpleTime(0);
         isRunning = false;
         id = ++instanceCount;
+        // Setup a timer with a 1 second (1000ms) interval
         timer = new Timer(1000, e -> {
             currentTime.increment(1);
             notifyObservers();
