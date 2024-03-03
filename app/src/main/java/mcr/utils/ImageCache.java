@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class ImageCache {
 
-    // Forbid instantiation as this is a utility class
+    // Forbid instantiation as this is a utility class with only static methods
     private ImageCache() {
     }
 

@@ -2,8 +2,6 @@ package mcr.chrono;
 
 import mcr.observer.Subject;
 import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.io.Closeable;
 
 /**
  * Simple chronometer that can start, stop, and reset. Notifies its observers when the time changes.
