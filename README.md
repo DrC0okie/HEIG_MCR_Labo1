@@ -98,6 +98,7 @@ classDiagram
   - [ ] tous les changements des derniers commits de Samuel
   - [ ] ajouter le simpletime.tostring()
   - [ ] set* methods in AnalogClock
+  - [ ] faut-il ajouter des cardinalités ??
 - [ ] UML à exporter -> higher quality PNG export / SVG export ?
 - [ ] Rename clockpanel to clockcommand in controlpanel indicating a buttons zone, to avoid confusion with the ClockPanel class ? 
 - [ ] Check si outil disponible pour d'autres labos pour générer des diagrammes UML
