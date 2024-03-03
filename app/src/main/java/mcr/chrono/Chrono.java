@@ -15,14 +15,12 @@ public class Chrono extends Subject {
     private final Timer timer;
     private static int instanceCount = 0;
     private final int id;
-    private boolean isRunning;
 
     /**
      * Constructs a new Chrono instance with the time set to 00:00:00.
      */
     public Chrono() {
         currentTime = new SimpleTime(0);
-        isRunning = false;
         id = ++instanceCount;
         // Setup a timer with a 1 second (1000ms) interval
         timer = new Timer(1000, e -> {
@@ -36,7 +34,6 @@ public class Chrono extends Subject {
      */
     public void start() {
         timer.start();
-        isRunning = true;
     }
 
     /**
@@ -44,7 +41,6 @@ public class Chrono extends Subject {
      */
     public void stop() {
         timer.stop();
-        isRunning = false;
     }
 
     /**
@@ -59,7 +55,7 @@ public class Chrono extends Subject {
      * Toggles the chronometer state between running and stopped.
      */
     public void toggle() {
-        if (isRunning) {
+        if (timer.isRunning()) {
             stop();
         } else {
             start();
