@@ -67,9 +67,9 @@ public class ControlPanel {
         addButton("Démarrer", clockPanel, e -> chrono.start());
         addButton("Arrêter", clockPanel, e -> chrono.stop());
         addButton("Réinitialiser", clockPanel, e -> chrono.reset());
-        addButton("Numérique", clockPanel, e -> showClock(chrono, NumericClock::new));
         addButton("Cadran romain", clockPanel, e -> showClock(chrono, RomanClock::new));
         addButton("Cadran arabe", clockPanel, e -> showClock(chrono, ArabicClock::new));
+        addButton("Numérique", clockPanel, e -> showClock(chrono, NumericClock::new));
     }
 
     /**
@@ -80,9 +80,9 @@ public class ControlPanel {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         panel.add(new JLabel("Tous les chronos"));
 
-        addButton("Cadrans romains", panel, e -> showClocks(RomanClock::new));
-        addButton("Cadrans arabes", panel, e -> showClocks(ArabicClock::new));
-        addButton("Numériques", panel, e -> showClocks(NumericClock::new));
+        addButton("Cadran romain", panel, e -> showClocks(RomanClock::new));
+        addButton("Cadran arabe", panel, e -> showClocks(ArabicClock::new));
+        addButton("Numérique", panel, e -> showClocks(NumericClock::new));
 
         frame.add(panel);
     }
