@@ -98,13 +98,18 @@ classDiagram
   - [ ] tous les changements des derniers commits de Samuel
   - [ ] ajouter le simpletime.tostring()
   - [ ] set* methods in AnalogClock
-  - [ ] faut-il ajouter des cardinalités ??
+  - [ ] Ajouter les cardinalités !!
 - [ ] UML à exporter -> higher quality PNG export / SVG export ?
-- [ ] Rename clockpanel to clockcommand in controlpanel indicating a buttons zone, to avoid confusion with the ClockPanel class ? 
+- [ ] Rename clockpanel to clockcommand in controlpanel indicating a buttons zone,
+  to avoid confusion with the ClockPanel class ? good idea
 - [ ] Check si outil disponible pour d'autres labos pour générer des diagrammes UML
 
 
 ## Dernières questions à poser
-- [ ] Est-ce que la durée en heure (SimpleTime.getHours()) est infinie ou modulo 24 ? Que se passe-t-il après 24h ?
+- [ ] Est-ce que la durée en heure (SimpleTime.getHours()) est infinie ou modulo 
+  24 ? Que se passe-t-il après 24h ? Logiquement modulo 24 => on recommence à 0 
+  j'imagine
 - [ ] Faut-il réutiliser Chrono.id à nouveau pour ControlPanel ?
-- [ ] ArabicClock: call of setSecondHandColor() -> mieux de passer ces valeurs via le constructeur de AnalogClock ?
+- [ ] ArabicClock: call of setSecondHandColor() -> mieux de passer ces valeurs 
+  via le constructeur de AnalogClock ? Bonne question... si oui, il faut créer un 
+  objet pour passer toutes les couleurs en 1 fois genre "ClockStyle".
