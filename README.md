@@ -96,10 +96,12 @@ classDiagram
 - [x] problème d'ordre des boutons
 - [ ] UML à update après changements
   - [ ] tous les changements des derniers commits de Samuel
-  - [ ] ajouter le simpletime.tostring()
-  - [ ] set* methods in AnalogClock
-  - [ ] Ajouter les cardinalités !!
-- [ ] UML à exporter -> higher quality PNG export / SVG export ?
+  - [x] ajouter le simpletime.tostring()
+  - [ ] set* methods in AnalogClock => besoin de mettre les setters / getters 
+    dans l'UML?
+  - [x] Ajouter les cardinalités !!
+- [ ] UML à exporter -> higher quality PNG export / SVG export => pas possible 
+  avec version d'essai
 - [ ] Rename clockpanel to clockcommand in controlpanel indicating a buttons zone,
   to avoid confusion with the ClockPanel class ? good idea
 - [ ] Check si outil disponible pour d'autres labos pour générer des diagrammes UML
