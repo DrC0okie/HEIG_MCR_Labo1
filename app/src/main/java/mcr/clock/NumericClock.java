@@ -1,7 +1,6 @@
 package mcr.clock;
 
 import mcr.chrono.Chrono;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,7 +12,6 @@ import java.awt.*;
 public class NumericClock extends ClockPanel {
 
     private final JLabel label = new JLabel();
-
 
     /**
      * Constructs a NumericClock associated with a specific {@link Chrono} and sets its size.

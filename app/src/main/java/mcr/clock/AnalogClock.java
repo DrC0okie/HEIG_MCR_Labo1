@@ -23,9 +23,9 @@ public abstract class AnalogClock extends ClockPanel {
     protected Color secondHandColor = Color.RED;
     protected Color minuteHandColor = Color.RED;
     protected Color hourHandColor = Color.RED;
+    private Graphics2D graphics2D;
 
     public AnalogClock(Chrono chrono, String imagePath) {
-
         super(chrono);
         setLayout(new FlowLayout());
 
@@ -42,40 +42,39 @@ public abstract class AnalogClock extends ClockPanel {
     }
 
     /**
-     * Handles the drawing the clock's background image, hands, and identifier text.
+     * Handles the drawing of the clock's background image, hands, and identifier text.
      * @param graphics The Graphics context in which to paint.
      */
     @Override
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-        Graphics2D graphics2D = (Graphics2D) graphics;
+        graphics2D = (Graphics2D) graphics;
 
         // Improve rendering quality
-        setRenderingHints(graphics2D);
+        setRenderingHints();
 
         // Draw the clock components
         graphics2D.drawImage(backgroundImage, 0, 0, this);
-        drawClockHands(graphics2D);
-        drawChronoId(graphics2D);
+        drawClockHands();
+        drawChronoId();
     }
 
-    protected void setSecondHandColor(Color color){
+    protected void setSecondHandColor(Color color) {
         secondHandColor = color;
     }
 
-    protected void setMinuteHandColor(Color color){
+    protected void setMinuteHandColor(Color color) {
         minuteHandColor = color;
     }
 
-    protected void setHourHandColor(Color color){
+    protected void setHourHandColor(Color color) {
         hourHandColor = color;
     }
 
     /**
      * Sets rendering hints for the Graphics2D context to improve the quality of the drawing.
-     * @param graphics2D The Graphics2D context where rendering hints are applied.
      */
-    private void setRenderingHints(Graphics2D graphics2D) {
+    private void setRenderingHints() {
         graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics2D.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
     }
@@ -83,16 +82,15 @@ public abstract class AnalogClock extends ClockPanel {
     /**
      * Draws the clock hands for hours, minutes, and seconds.
      * This method works on a copy of the {@link Graphics2D} because it changes its coordinates
-     * @param graphics2D The Graphics2D context used for drawing the hands.
      */
-    private void drawClockHands(Graphics2D graphics2D) {
+    private void drawClockHands() {
         // Create a copy of the Graphics2D context to work with
         Graphics2D gCopy = (Graphics2D) graphics2D.create();
 
         try {
             SimpleTime time = chrono.getTime();
 
-            // Centralize the origin for drawing hands
+            // Centralize the origin to the middle of the panel, to enable easy drawing of hands
             gCopy.translate(getWidth() / 2, getHeight() / 2);
 
             // Draw second, minute, and hour hands
@@ -111,9 +109,8 @@ public abstract class AnalogClock extends ClockPanel {
 
     /**
      * Draws the identifier of the Chrono associated with this clock.
-     * @param graphics2D The Graphics2D context used for drawing the text.
      */
-    private void drawChronoId(Graphics2D graphics2D) {
+    private void drawChronoId() {
         String chronoText = "Chrono #" + chrono.getId();
 
         // Get metrics from the graphics
@@ -132,18 +129,18 @@ public abstract class AnalogClock extends ClockPanel {
     /**
      * Draws a single hand (hour, minute, or second) on the clock.
      *
-     * @param graphics2D The Graphics2D context used for drawing the hand.
+     * @param localGraphics2D The Graphics2D context used for drawing the hand.
      * @param color The color of the hand to be drawn.
      * @param length The length of the hand.
      * @param thickness The thickness of the hand.
      * @param time The current time value (hour, minute, or second) that the hand represents.
      * @param timeCycle The time cycle (e.g., 60 for minutes and seconds, 12 for hours).
      */
-    private void drawHand(Graphics2D graphics2D, Color color, int length, int thickness, int time, int timeCycle) {
+    private void drawHand(Graphics2D localGraphics2D, Color color, int length, int thickness, int time, int timeCycle) {
         Point endPoint = calculateNeedleEndPoint(length, time, timeCycle);
-        graphics2D.setColor(color);
-        graphics2D.setStroke(new BasicStroke(thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_BEVEL));
-        graphics2D.drawLine(0, 0, endPoint.x, endPoint.y);
+        localGraphics2D.setColor(color);
+        localGraphics2D.setStroke(new BasicStroke(thickness, BasicStroke.CAP_ROUND, BasicStroke.JOIN_BEVEL));
+        localGraphics2D.drawLine(0, 0, endPoint.x, endPoint.y);
     }
 
     /**
@@ -155,7 +152,7 @@ public abstract class AnalogClock extends ClockPanel {
      * @return A Point representing the end point of the hand.
      */
     private Point calculateNeedleEndPoint(int length, int time, int timeCycle) {
-        double angle = 2.0 * Math.PI * time / timeCycle;
+        double angle = 2.0 * Math.PI * time / timeCycle; // in rad
         int x = (int) (Math.sin(angle) * length);
         int y = (int) (-Math.cos(angle) * length);
         return new Point(x, y);

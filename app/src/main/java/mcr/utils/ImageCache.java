@@ -12,8 +12,9 @@ import java.util.Map;
  */
 public class ImageCache {
 
-    // Forbid instantiation as this is a utility class
-    private ImageCache(){}
+    // Forbid instantiation as this is a utility class with only static methods
+    private ImageCache() {
+    }
 
     /**
      * A map to store cached images.
@@ -49,8 +50,7 @@ public class ImageCache {
             System.err.println("Error loading image: " + e.getMessage());
 
             // return empty image
-            return new BufferedImage(1,1, BufferedImage.TYPE_INT_ARGB);
+            return new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         }
     }
 }
-

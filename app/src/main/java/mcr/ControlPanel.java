@@ -5,8 +5,6 @@ import mcr.clock.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.LinkedList;
 import java.util.function.Function;
 
@@ -69,9 +67,9 @@ public class ControlPanel {
         addButton("Démarrer", clockPanel, e -> chrono.start());
         addButton("Arrêter", clockPanel, e -> chrono.stop());
         addButton("Réinitialiser", clockPanel, e -> chrono.reset());
-        addButton("Numérique", clockPanel, e -> showClock(chrono, NumericClock::new));
         addButton("Cadran romain", clockPanel, e -> showClock(chrono, RomanClock::new));
         addButton("Cadran arabe", clockPanel, e -> showClock(chrono, ArabicClock::new));
+        addButton("Numérique", clockPanel, e -> showClock(chrono, NumericClock::new));
     }
 
     /**
@@ -82,9 +80,9 @@ public class ControlPanel {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         panel.add(new JLabel("Tous les chronos"));
 
-        addButton("Cadrans romains", panel, e -> showClocks(RomanClock::new));
-        addButton("Cadrans arabes", panel, e -> showClocks(ArabicClock::new));
-        addButton("Numériques", panel, e -> showClocks(NumericClock::new));
+        addButton("Cadran romain", panel, e -> showClocks(RomanClock::new));
+        addButton("Cadran arabe", panel, e -> showClocks(ArabicClock::new));
+        addButton("Numérique", panel, e -> showClocks(NumericClock::new));
 
         frame.add(panel);
     }
@@ -109,8 +107,6 @@ public class ControlPanel {
      * @param factory The factory to create {@link ClockPanel} instances for each {@link Chrono}.
      */
     private void showClocks(Function<Chrono, ClockPanel> factory) {
-
-        // For each chrono
         ClockPanel[] panels = chronos.stream().limit(nbClock).map(factory).toArray(ClockPanel[]::new);
         new ClockFrame(panels);
     }

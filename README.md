@@ -69,6 +69,8 @@ classDiagram
     ClockFrame o-- ClockPanel
 ```
 
+## UML final
+![uml](UML.png)
 
 ## Question à poser
 
@@ -85,13 +87,29 @@ classDiagram
 ## TODO
 * Error management / exception handling -> pas besoin de gérer si pas public
 
-- [ ] Chercher à mettre des paramètres de méthodes en attributs privés (Graphics2D par ex.)
-- [ ] Checker javadoc (paramètre retirés et modifiés)
-- [ ] Relecture complète
+- [x] Chercher à mettre des paramètres de méthodes en attributs privés (Graphics2D par ex.)
+- [x] Checker javadoc (paramètre retirés et modifiés)
+- [x] Relecture complète
+- [x] Mini tests mouvements aiguilles
+- [x] Check ok avec consigne
+- [x] Reformattage complet (100 char/ligne)
+- [x] problème d'ordre des boutons
 - [ ] UML à update après changements
-- [ ] UML à exporter
-- [ ] Mini tests mouvements aiguilles
-- [ ] Check ok avec consigne
+  - [ ] tous les changements des derniers commits de Samuel
+  - [ ] ajouter le simpletime.tostring()
+  - [ ] set* methods in AnalogClock
+  - [ ] Ajouter les cardinalités !!
+- [ ] UML à exporter -> higher quality PNG export / SVG export ?
+- [ ] Rename clockpanel to clockcommand in controlpanel indicating a buttons zone,
+  to avoid confusion with the ClockPanel class ? good idea
 - [ ] Check si outil disponible pour d'autres labos pour générer des diagrammes UML
-- [ ] Reformattage complet (100 char/ligne)
 
+
+## Dernières questions à poser
+- [ ] Est-ce que la durée en heure (SimpleTime.getHours()) est infinie ou modulo 
+  24 ? Que se passe-t-il après 24h ? Logiquement modulo 24 => on recommence à 0 
+  j'imagine
+- [ ] Faut-il réutiliser Chrono.id à nouveau pour ControlPanel ?
+- [ ] ArabicClock: call of setSecondHandColor() -> mieux de passer ces valeurs 
+  via le constructeur de AnalogClock ? Bonne question... si oui, il faut créer un 
+  objet pour passer toutes les couleurs en 1 fois genre "ClockStyle".
