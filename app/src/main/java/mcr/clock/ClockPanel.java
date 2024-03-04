@@ -37,6 +37,7 @@ public abstract class ClockPanel extends JPanel implements Observer {
      * Detaches this panel from its associated {@link Chrono}, stopping it from receiving updates.
      */
     public void detachFromChrono() {
-        chrono.detach(this);
+        if (chrono != null)
+            chrono.detach(this);
     }
 }
