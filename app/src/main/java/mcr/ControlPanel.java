@@ -60,16 +60,16 @@ public class ControlPanel {
     /**
      * Adds buttons for a single clock to the specified panel.
      *
-     * @param clockPanel The panel to which the control buttons will be added.
+     * @param commandPanel The panel to which the control buttons will be added.
      * @param chrono     The {@link Chrono} instance associated with the clock being controlled.
      */
-    private void addSingleClockButtons(JPanel clockPanel, Chrono chrono) {
-        addButton("Démarrer", clockPanel, e -> chrono.start());
-        addButton("Arrêter", clockPanel, e -> chrono.stop());
-        addButton("Réinitialiser", clockPanel, e -> chrono.reset());
-        addButton("Cadran romain", clockPanel, e -> showClock(chrono, RomanClock::new));
-        addButton("Cadran arabe", clockPanel, e -> showClock(chrono, ArabicClock::new));
-        addButton("Numérique", clockPanel, e -> showClock(chrono, NumericClock::new));
+    private void addSingleClockButtons(JPanel commandPanel, Chrono chrono) {
+        addButton("Démarrer", commandPanel, e -> chrono.start());
+        addButton("Arrêter", commandPanel, e -> chrono.stop());
+        addButton("Réinitialiser", commandPanel, e -> chrono.reset());
+        addButton("Cadran romain", commandPanel, e -> showClock(chrono, RomanClock::new));
+        addButton("Cadran arabe", commandPanel, e -> showClock(chrono, ArabicClock::new));
+        addButton("Numérique", commandPanel, e -> showClock(chrono, NumericClock::new));
     }
 
     /**
