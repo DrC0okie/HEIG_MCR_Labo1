@@ -1,6 +1,7 @@
 # HEIG_MCR_Labo1
 
 ## Brainstorming
+Schéma final fait sans Mermaid.
 ```mermaid
 classDiagram
     direction BT
@@ -97,21 +98,23 @@ classDiagram
 - [ ] UML à update après changements
   - [ ] tous les changements des derniers commits de Samuel
   - [x] ajouter le simpletime.tostring()
-  - [ ] set* methods in AnalogClock => besoin de mettre les setters / getters 
+  - [x] set* methods in AnalogClock => besoin de mettre les setters / getters 
     dans l'UML?
   - [x] Ajouter les cardinalités !!
-- [ ] UML à exporter -> higher quality PNG export / SVG export => pas possible 
+- [x] UML à exporter -> higher quality PNG export / SVG export => pas possible 
   avec version d'essai
-- [ ] Rename clockpanel to clockcommand in controlpanel indicating a buttons zone,
+- [x] Rename clockpanel to clockcommand in controlpanel indicating a buttons zone,
   to avoid confusion with the ClockPanel class ? good idea
-- [ ] Check si outil disponible pour d'autres labos pour générer des diagrammes UML
-
+- [x] Check si outil disponible pour d'autres labos pour générer des diagrammes UML
+    - Conclusion: Trouvés 3 outils prometteurs mais rien ne fonctionne entièrement. Surtout des détails pour le format final et les associations manquantes.
+    - https://github.com/shuzijun/plantuml-parser/tree/main/plantuml-parser-cli
+    - https://devlauer.github.io/plantuml-generator/plantuml-generator-util/latest/class-diagram/config/additional-plantuml-configs.html
 
 ## Dernières questions à poser
-- [ ] Est-ce que la durée en heure (SimpleTime.getHours()) est infinie ou modulo 
+- [x] Est-ce que la durée en heure (SimpleTime.getHours()) est infinie ou modulo 
   24 ? Que se passe-t-il après 24h ? Logiquement modulo 24 => on recommence à 0 
-  j'imagine
-- [ ] Faut-il réutiliser Chrono.id à nouveau pour ControlPanel ?
-- [ ] ArabicClock: call of setSecondHandColor() -> mieux de passer ces valeurs 
+  j'imagine. Conclusion: % 24 c'est ok
+- [x] Faut-il réutiliser Chrono.id à nouveau pour ControlPanel ? Oui c'est mieux. Done.
+- [x] ArabicClock: call of setSecondHandColor() -> mieux de passer ces valeurs 
   via le constructeur de AnalogClock ? Bonne question... si oui, il faut créer un 
-  objet pour passer toutes les couleurs en 1 fois genre "ClockStyle".
+  objet pour passer toutes les couleurs en 1 fois genre "ClockStyle". Conclusion: mieux par constructeur
