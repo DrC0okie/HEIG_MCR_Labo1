@@ -26,8 +26,12 @@ public abstract class AnalogClock extends ClockPanel {
     protected Color minuteHandColor = Color.RED;
     protected Color hourHandColor = Color.RED;
 
-    public AnalogClock(Chrono chrono, String imagePath) {
+    public AnalogClock(Chrono chrono, String imagePath, Color secondHandColor, Color minuteHandColor, Color hourHandColor) {
         super(chrono);
+        this.secondHandColor = secondHandColor;
+        this.minuteHandColor = minuteHandColor;
+        this.hourHandColor = hourHandColor;
+
         setLayout(new FlowLayout());
 
         // Retrieve the background image from the cache
@@ -59,18 +63,6 @@ public abstract class AnalogClock extends ClockPanel {
         graphics2D.drawImage(backgroundImage, 0, 0, this);
         drawClockHands(graphics2D);
         drawChronoId(graphics2D);
-    }
-
-    protected void setSecondHandColor(Color color) {
-        secondHandColor = color;
-    }
-
-    protected void setMinuteHandColor(Color color) {
-        minuteHandColor = color;
-    }
-
-    protected void setHourHandColor(Color color) {
-        hourHandColor = color;
     }
 
     /**
