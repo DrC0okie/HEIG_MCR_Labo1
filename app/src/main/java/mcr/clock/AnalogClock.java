@@ -96,6 +96,7 @@ public abstract class AnalogClock extends ClockPanel {
         drawHand(graphics2D, hourHandColor, (int) (getWidth() * HOUR_HAND_LENGTH_FACTOR),
                 HOUR_HAND_THICKNESS, time.getHours(), HOUR_CYCLE);
 
+        // Translate back to original origin point in window (0;0) for next steps
         graphics2D.translate(getWidth() / -2, getHeight() / -2);
     }
 
