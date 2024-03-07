@@ -61,11 +61,12 @@ public class Chrono extends Subject {
     }
 
     /**
-     * Returns the unique ID of the chronometer.
-     * @return The chronometer's ID.
+     * Returns the textual identifier of the Chrono
+     * @return the text id
      */
-    public int getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "Chrono #" + id;
     }
 
     /**

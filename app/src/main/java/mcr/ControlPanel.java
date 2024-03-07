@@ -39,11 +39,12 @@ public class ControlPanel {
 
         for (int i = 0; i < nbClock; i++) {
             // Add the desired number of chronos to the list
-            chronos.add(new Chrono());
+            var chrono = new Chrono();
+            chronos.add(chrono);
 
             // For each chrono, create a new panel, add the label and the buttons to it
             JPanel clockPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-            clockPanel.add(new JLabel("Chrono #" + (i + 1)));
+            clockPanel.add(new JLabel(chrono.toString()));
             addSingleClockButtons(clockPanel, chronos.get(i));
 
             // Add the panel to the main frame

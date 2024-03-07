@@ -30,6 +30,6 @@ public class NumericClock extends ClockPanel {
      */
     @Override
     public void update() {
-        label.setText("Chrono #" + chrono.getId() + ": " + chrono.getTime());
+        label.setText(chrono.toString() + ": " + chrono.getTime());
     }
 }

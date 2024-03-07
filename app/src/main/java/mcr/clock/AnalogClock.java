@@ -105,7 +105,7 @@ public abstract class AnalogClock extends ClockPanel {
      * @param graphics2D The Graphics2D context used for drawing the text.
      */
     private void drawChronoId(Graphics2D graphics2D) {
-        String chronoText = "Chrono #" + chrono.getId();
+        String chronoText = chrono.toString();
 
         // Get metrics from the graphics
         FontMetrics metrics = graphics2D.getFontMetrics(graphics2D.getFont());
