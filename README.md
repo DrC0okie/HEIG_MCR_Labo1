@@ -1,7 +1,7 @@
 # HEIG_MCR_Labo1
 
 ## Brainstorming
-Schéma final fait sans Mermaid.
+Schéma de brainstorm avec Mermaid. Le schéma final est inclus plus bas.
 ```mermaid
 classDiagram
     direction BT
