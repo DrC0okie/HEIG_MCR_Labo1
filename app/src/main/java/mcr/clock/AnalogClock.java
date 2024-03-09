@@ -3,11 +3,10 @@ package mcr.clock;
 import mcr.chrono.Chrono;
 import mcr.utils.ImageCache;
 import mcr.chrono.SimpleTime;
-
 import java.awt.*;
 
 /**
- * The AnalogClock class that provide a visual representation of an analog clock.
+ * Abstract class that provide a visual representation of an analog clock.
  *
  * @author Samuel Roland, Timothée Van Hove
  */

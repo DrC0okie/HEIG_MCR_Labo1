@@ -3,6 +3,7 @@ package mcr;
 /**
  * Entry point of the clock application.
  * Initializes the application based on CLI arguments specifying the number of clocks to manage.
+ *
  * @author Samuel Roland, Timothée Van Hove
  */
 public class App {
