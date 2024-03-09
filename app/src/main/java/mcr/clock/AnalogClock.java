@@ -21,9 +21,9 @@ public abstract class AnalogClock extends ClockPanel {
     private static final double MINUTE_HAND_LENGTH_FACTOR = 0.3;
     private static final int HOUR_HAND_THICKNESS = 4;
     private static final double HOUR_HAND_LENGTH_FACTOR = 0.2;
-    protected Color secondHandColor = Color.RED;
-    protected Color minuteHandColor = Color.RED;
-    protected Color hourHandColor = Color.RED;
+    protected Color secondHandColor;
+    protected Color minuteHandColor;
+    protected Color hourHandColor;
 
     public AnalogClock(Chrono chrono, String imagePath, Color secondHandColor, Color minuteHandColor, Color hourHandColor) {
         super(chrono);
