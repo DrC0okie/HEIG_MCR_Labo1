@@ -98,8 +98,6 @@ classDiagram
 - [ ] UML à update après changements
   - [ ] tous les changements des derniers commits de Samuel
   - [x] ajouter le simpletime.tostring()
-  - [x] set* methods in AnalogClock => besoin de mettre les setters / getters 
-    dans l'UML?
   - [x] Ajouter les cardinalités !!
 - [x] UML à exporter -> higher quality PNG export / SVG export => pas possible 
   avec version d'essai
